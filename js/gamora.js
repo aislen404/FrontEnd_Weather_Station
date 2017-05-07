@@ -42,7 +42,8 @@ var Charts = function () {
                 xaxis: {
                     mode: "time",
                     ticks: 10,
-                    tickDecimals: 0
+                    tickDecimals: 0,
+                    timezone: "browser"
                 },
                 yaxis: {
                     ticks: 10,
