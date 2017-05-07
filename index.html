@@ -15,7 +15,7 @@
     <![endif]-->
 
     <!-- STYLESHEETS -->
-	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="fonts/css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -96,16 +96,16 @@
 								<!-- /BOX -->
 							</div>
 							<!-- END ACTUAL REPORT -->
-							
+
 							<!-- ANIMATED CHART -->
 							<div class="col-md-6">
 								<!-- BOX -->
 								<div class="box border inverse">
 									<div class="box-title">
-										<h4><i class="fa fa-location-arrow"></i> Pressure Report</h4>
+										<h4><i class="fa fa-fire"></i> Temperature Report - 24h</h4>
 									</div>
 									<div class="box-body">
-
+                                        <div id="chart_1" class="chart"></div>
 									</div>
 								</div>
 								<!-- /BOX -->
@@ -117,40 +117,40 @@
 								<!-- BOX -->
 								<div class="box border inverse">
 									<div class="box-title">
-										<h4><i class="fa fa-fire"></i> Temperature Report</h4>
+										<h4><i class="fa fa-cloud"></i> Humidity Report - 24h</h4>
 									</div>
 									<div class="box-body">
-                                        <div id="myChart" width="400" height="400"></div>
+                                        <div id="chart_2" class="chart"></div>
 									</div>
 								</div>
 								<!-- /BOX -->
 							</div>
 							<!-- /ANIMATED CHART -->
-							
+
+                            <!-- ANIMATED CHART -->
+                            <div class="col-md-6">
+                                <!-- BOX -->
+                                <div class="box border inverse">
+                                    <div class="box-title">
+                                        <h4><i class="fa fa-location-arrow"></i> Pressure Report - 24h</h4>
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="chart_3" class="chart"></div>
+                                    </div>
+                                </div>
+                                <!-- /BOX -->
+                            </div>
+                            <!-- /ANIMATED CHART -->
+
 							<!-- ANIMATED CHART -->
 							<div class="col-md-6">
 								<!-- BOX -->
 								<div class="box border inverse">
 									<div class="box-title">
-										<h4><i class="fa fa-cloud"></i> Humidity Report</h4>
+										<h4><i class="fa fa-sun-o"></i> LDR Report - 24h</h4>
 									</div>
 									<div class="box-body">
-
-									</div>
-								</div>
-								<!-- /BOX -->
-							</div>
-							<!-- /ANIMATED CHART -->
-							
-							<!-- ANIMATED CHART -->
-							<div class="col-md-6">
-								<!-- BOX -->
-								<div class="box border inverse">
-									<div class="box-title">
-										<h4><i class="fa fa-sun-o"></i> LDR Report</h4>
-									</div>
-									<div class="box-body">
-
+                                        <div id="chart_4" class="chart"></div>
 									</div>
 								</div>
 								<!-- /BOX -->
@@ -164,15 +164,25 @@
 		</div>
 	</section>
 	<!--/PAGE -->
-	<!-- JAVASCRIPTS -->
+
+    <!-- JAVASCRIPTS -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<!-- LIBRARY SCRIPT -->
+
+    <!-- GOOGLE MAPS SCRIPT -->
 	<script src="http://maps.google.com/maps/api/js?key=AIzaSyBuUnngQ8WtLB5XUZEx1y_D_J5DBg2yTwo" type="text/javascript"></script>
 	<script type="text/javascript" src="js/gmaps/gmaps.min.js"></script>
+
+    <!-- FLOT CHART SCRIPT -->
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot/excanvas.min.js"></script><![endif]-->
+	<script language="javascript" type="text/javascript" src="js/flot/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.time.min.js"></script>
+
 	<!-- CUSTOM SCRIPT -->
 	<script src="js/rocketRaccoon.js"></script>
 	<script src="js/groot.js"></script>
 	<script src="js/starLord.js"></script>
+    <script src="js/gamora.js"></script>
 	<script>
         if ('addEventListener' in document) {
             document.addEventListener('DOMContentLoaded', function (){

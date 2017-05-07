@@ -33,6 +33,7 @@ var app = {
 
             var nowLDR = obj.result[0].data.LDR;
             var textLDR = Math.abs(nowLDR);
+            var chr_LDR = ' N/A';
 
             document.getElementById('now').innerHTML = now;
             document.getElementById('now-temp').innerHTML = nowTemp + chr_Temp;
@@ -49,24 +50,19 @@ var app = {
             var press = 0;
             var ldr = 0;
 
-            var at_r = [];
-
             var data1 = [];
             var data2 = [];
             var data3 = [];
             var data4 = [];
 
-            for (var i = 0; i < 360; i++) {
+            for (var i = 0; i < 460; i++) {
                 at = new Date(obj.result[i].at * 1000);
                 press = obj.result[i].data.PRESSURE;
-                temp = obj.result[i].data.TEMPERATURE_2;
+                temp = Math.abs(obj.result[i].data.TEMPERATURE_2);
 
                 if (temp < 0) temp = Math.abs(temp); //correccion valores negativos
                 hum = obj.result[i].data.HUMIDITY;
                 ldr = obj.result[i].data.LDR;
-
-
-                at_r.push([at]);
 
                 data1.push([at, temp]);
                 data2.push([at, hum]);
@@ -74,6 +70,10 @@ var app = {
                 data4.push([at, ldr]);
             }
 
+            Charts.initOtherCharts(chr_Temp,1,data1);
+            Charts.initOtherCharts(chr_Humidity,2,data2);
+            Charts.initOtherCharts(chr_Press,3,data3);
+            Charts.initOtherCharts(chr_LDR,4,data4);
         });
     }
 };
