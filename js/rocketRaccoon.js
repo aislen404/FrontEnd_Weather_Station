@@ -8,7 +8,7 @@
  * @param url
  * @example  makeCorsRequest("GET", "http://api.carriots.com/devices/jrdvll_e_w_1@aislen404.aislen404/streams/?sort=at&order=-1");
  */
-function makeCorsRequest(meth, url) {
+function makeCorsRequest(meth, url , callback) {
 
     var jsonData = null;
 
@@ -34,21 +34,23 @@ function makeCorsRequest(meth, url) {
     xhr.setRequestHeader('Accept', 'application/json');
     xhr.setRequestHeader('Content-Type', 'application/json');
 
-    // Response handlers.
-    xhr.onload = function() {
-        var text = xhr.responseText;
-        //console.log(text);
-        return text;
 
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState < 4)                             // while waiting response from server
+            console.log('Loading...');                      // loading
+        else if (xhr.readyState === 4) {                    // 4 = Response from server has been completely loaded.
+            if (xhr.status == 200 && xhr.status < 300){     // http status between 200 to 299 are all successful
+                callback(xhr.responseText);                 //callback for return the results
+            }
+        }
     };
 
     xhr.onerror = function() {
-        alert('There was an error making the request.');
+        console.log('There was an error making the request.');
     };
 
     xhr.send(jsonData);
 }
-
 
 /**
  * @description Create the XHR object.
@@ -57,11 +59,12 @@ function makeCorsRequest(meth, url) {
  * @returns {XMLHttpRequest}
  */
 function _createCORSRequest(method, url) {
+
     var xhr = new XMLHttpRequest();
-    if ("withCredentials" in xhr) {
+    if ('withCredentials' in xhr) {
         // XHR for Chrome/Firefox/Opera/Safari.
-        xhr.open(method, url, true);  // TODO : change true per false
-    } else if (typeof XDomainRequest != "undefined") {
+        xhr.open(method, url, true);
+    } else if (typeof XDomainRequest != 'undefined') {
         // XDomainRequest for IE.
         xhr = new XDomainRequest();
         xhr.open(method, url);

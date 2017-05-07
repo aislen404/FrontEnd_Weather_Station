@@ -10,84 +10,46 @@
 	<meta name="author" content="">
 
     <!--[if lt IE 9]>
-        <script src="js/flot/excanvas.min.js"></script>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
 
     <!-- STYLESHEETS -->
 	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- FONTS -->
-
-
+	<link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-	<!-- HEADER -->
-	<header class="navbar clearfix" id="header">
-		<div class="container">
-			<div class="navbar-brand">
-
-			</div>
-		</div>
-	</header>
-	<!--/HEADER -->
-	
 	<!-- PAGE -->
 	<section id="page">
 		<div id="main-content">
 			<div class="container">
 				<div class="row">
 					<div id="content" class="col-lg-12">
+
 						<!-- PAGE HEADER-->
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="page-header">
-									<!-- STYLER -->
-									
-									<!-- /STYLER -->
-									<!-- BREADCRUMBS -->
-									<ul class="breadcrumb">
-										<li>
-											<i class="fa fa-home"></i>
-											<a href="index.html">Home</a>
-										</li>
-										<li><i class="fa fa-map-marker"></i> Brunete</li>
-									</ul>
-									<!-- /BREADCRUMBS -->
-									<div class="clearfix">
-										<h3 class="content-title pull-left">Brunete</h3>
-									</div>
-									<div class="description">Actual Report, Historic and more</div>
+									<h1>
+                                        <span class=""> Brunete : </span>
+                                        <span class="description"> Actual Report, Historic and more</span>
+                                    </h1>
 								</div>
 							</div>
 						</div>
 						<!-- /PAGE HEADER -->
-						
-						
+
 						<!--------------------------->
-						
+
 						<!-- DASHBOARD CONTENT -->
 						<div class="row">
-							
 							<!-- GOOGLE MAP -->
 							<div class="col-md-6">
 								<!-- BOX -->
 								<div class="box border orange">
 									<div class="box-title">
-										<h4><i class="fa fa-map-marker"></i>Meteo Station Situation</h4>
-										<div class="tools">
-											<a href="javascript:;" class="reload">
-												<i class="fa fa-refresh"></i>
-											</a>
-											<a href="javascript:;" class="collapse">
-												<i class="fa fa-chevron-up"></i>
-											</a>
-											<a href="javascript:;" class="remove">
-												<i class="fa fa-times"></i>
-											</a>
-										</div>
+										<h4><i class="fa fa-map-marker"></i> Meteo Station Situation</h4>
 									</div>
 									<div class="box-body">
 										<div id="gmap_marker" class="gmaps"></div>
@@ -102,19 +64,33 @@
 								<!-- BOX -->
 								<div class="box solid grey">
 									<div class="box-title">
-										<h4><i class="fa fa-bell"></i>Actual Report</h4>
-										<div class="tools hidden-xs">
-											<span class="badge badge-green" id="last_update"></span>&nbsp;&nbsp;&nbsp;
-											<a href="javascript:;" class="collapse">
-												<i class="fa fa-chevron-up"></i>
-											</a>
-											<a href="javascript:;" class="remove">
-												<i class="fa fa-times"></i>
-											</a>
-										</div>
+										<h4>
+                                            <i class="fa fa-bell"></i>
+                                            Actual Report:
+                                            <span id="now" class="label label-success">Success</span>
+                                        </h4>
 									</div>
 									<div class="box-body">
-
+                                        <div class="actual">
+                                            <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <span class="badge" id="now-temp">XX</span>
+                                                TEMPERATURE
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="badge" id="now-press">XX</span>
+                                                PRESSURE
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="badge" id="now-humd">XX</span>
+                                                HUMIDITY
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="badge" id="now-ldr">XX</span>
+                                                LDR
+                                            </li>
+                                        </ul>
+                                        </div>
 									</div>
 								</div>
 								<!-- /BOX -->
@@ -126,15 +102,7 @@
 								<!-- BOX -->
 								<div class="box border inverse">
 									<div class="box-title">
-										<h4><i class="fa fa-location-arrow"></i>Pressure Report</h4>
-										<div class="tools">
-											<a href="javascript:;" class="collapse">
-												<i class="fa fa-chevron-up"></i>
-											</a>
-											<a href="javascript:;" class="remove">
-												<i class="fa fa-times"></i>
-											</a>
-										</div>
+										<h4><i class="fa fa-location-arrow"></i> Pressure Report</h4>
 									</div>
 									<div class="box-body">
 
@@ -149,15 +117,22 @@
 								<!-- BOX -->
 								<div class="box border inverse">
 									<div class="box-title">
-										<h4><i class="fa fa-fire"></i>Temperature Report</h4>
-										<div class="tools">
-											<a href="javascript:;" class="collapse">
-												<i class="fa fa-chevron-up"></i>
-											</a>
-											<a href="javascript:;" class="remove">
-												<i class="fa fa-times"></i>
-											</a>
-										</div>
+										<h4><i class="fa fa-fire"></i> Temperature Report</h4>
+									</div>
+									<div class="box-body">
+                                        <div id="myChart" width="400" height="400"></div>
+									</div>
+								</div>
+								<!-- /BOX -->
+							</div>
+							<!-- /ANIMATED CHART -->
+							
+							<!-- ANIMATED CHART -->
+							<div class="col-md-6">
+								<!-- BOX -->
+								<div class="box border inverse">
+									<div class="box-title">
+										<h4><i class="fa fa-cloud"></i> Humidity Report</h4>
 									</div>
 									<div class="box-body">
 
@@ -172,15 +147,7 @@
 								<!-- BOX -->
 								<div class="box border inverse">
 									<div class="box-title">
-										<h4><i class="fa fa-cloud"></i>Humidity Report</h4>
-										<div class="tools">
-											<a href="javascript:;" class="collapse">
-												<i class="fa fa-chevron-up"></i>
-											</a>
-											<a href="javascript:;" class="remove">
-												<i class="fa fa-times"></i>
-											</a>
-										</div>
+										<h4><i class="fa fa-sun-o"></i> LDR Report</h4>
 									</div>
 									<div class="box-body">
 
@@ -189,41 +156,8 @@
 								<!-- /BOX -->
 							</div>
 							<!-- /ANIMATED CHART -->
-							
-							<!-- ANIMATED CHART -->
-							<div class="col-md-6">
-								<!-- BOX -->
-								<div class="box border inverse">
-									<div class="box-title">
-										<h4><i class="fa fa-sun-o"></i>LDR Report</h4>
-										<div class="tools">
-											<a href="javascript:;" class="collapse">
-												<i class="fa fa-chevron-up"></i>
-											</a>
-											<a href="javascript:;" class="remove">
-												<i class="fa fa-times"></i>
-											</a>
-										</div>
-									</div>
-									<div class="box-body">
-
-									</div>
-								</div>
-								<!-- /BOX -->
-							</div>
-							<!-- /ANIMATED CHART -->
-							
 						</div>
 					    <!-- END DASHBOARD -->
-					   
-					    <!--------------------------->
-						
-					   
-						<div class="footer-tools">
-							<span class="go-top">
-								<i class="fa fa-chevron-up"></i> Top
-							</span>
-						</div>
 					</div><!-- /CONTENT-->
 				</div>
 			</div>
@@ -232,7 +166,7 @@
 	<!--/PAGE -->
 	<!-- JAVASCRIPTS -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<!-- GOOGLE MAPS -->
+	<!-- LIBRARY SCRIPT -->
 	<script src="http://maps.google.com/maps/api/js?key=AIzaSyBuUnngQ8WtLB5XUZEx1y_D_J5DBg2yTwo" type="text/javascript"></script>
 	<script type="text/javascript" src="js/gmaps/gmaps.min.js"></script>
 	<!-- CUSTOM SCRIPT -->
